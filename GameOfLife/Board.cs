@@ -34,8 +34,18 @@ namespace GameOfLife
 			Console.ReadLine(); // Wait for user to hit enter
 		}
 
-		public void SetGliderPattern() {
+		public void SetPattern (string pattern) {
 			board = new bool[boardSize,boardSize];
+			switch (pattern) {
+			case "glider":
+				SetGliderPattern();
+				break;
+			default:
+				break;
+			}
+		}
+
+		private void SetGliderPattern() {
 			board [3, 5] = true;
 			board [4, 5] = true;
 			board [5, 5] = true;
