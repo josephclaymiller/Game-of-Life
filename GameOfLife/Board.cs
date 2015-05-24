@@ -4,13 +4,12 @@ namespace GameOfLife
 {
 	public class Board
 	{
-		private static int boardSize = 10;
-		private static bool[,] board;
-		private static bool[,] nextBoard;
-		private static string aliveSymbol = "*";
-		private static string deadSymbol = "-";
-		private static int turns = 0;
-		private const int maxTurns = 10;
+		private int boardSize = 10;
+		private bool[,] board;
+		private bool[,] nextBoard;
+		private string aliveSymbol = "*";
+		private string deadSymbol = "-";
+		private int turns = 0;
 		
 		public void TakeTurns(int turns) {
 			for (int i = 0; i < turns; i++) {
