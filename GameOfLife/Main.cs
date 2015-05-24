@@ -24,7 +24,7 @@ namespace GameOfLife
 			TakeTurns(maxTurns);
 		}
 
-		public static void TakeTurns(int turns) {
+		private static void TakeTurns(int turns) {
 			for (int i = 0; i < turns; i++) {
 				TakeTurn();
 				ShowBoard();
@@ -57,7 +57,6 @@ namespace GameOfLife
 					nextBoard[row, col] = living;
 				}
 			}
-
 			board = nextBoard; // Set current board to next board
 			turns ++;
 		}
