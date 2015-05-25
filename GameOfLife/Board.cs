@@ -4,14 +4,27 @@ namespace GameOfLife
 {
 	public class Board
 	{
-		private int boardSize = 10;
+		public string pattern {
+			set { 
+				_pattern = value;
+				SetPattern(_pattern);
+			}
+		}
+		private string _pattern;
+		private int boardSize;
 		private bool[,] board;
 		private bool[,] nextBoard;
 		private string aliveSymbol = "*";
 		private string deadSymbol = "-";
-		private int turns = 0;
+		private int turns;
+
+		public Board(int boardSize = 10) {
+			this.boardSize = boardSize;
+			board = new bool[boardSize,boardSize];
+			turns = 0;
+		}
 		
-		public void TakeTurns(int turns) {
+		public void TakeTurns(int turns = 10) {
 			for (int i = 0; i < turns; i++) {
 				TakeTurn();
 				ShowBoard();
@@ -39,8 +52,6 @@ namespace GameOfLife
 			switch (pattern) {
 			case "glider":
 				SetGliderPattern();
-				break;
-			default:
 				break;
 			}
 		}
@@ -88,7 +99,7 @@ namespace GameOfLife
 		
 		private bool IsAlive(int row, int col, bool alive) {
 			// Get number of living neighbours
-			int neighbours = LivingNeighbours (row, col);
+			int neighbours = LivingNeighbours(row, col);
 			// Return true for alive if 3 live neighbours
 			if (neighbours == 3)
 				return true;

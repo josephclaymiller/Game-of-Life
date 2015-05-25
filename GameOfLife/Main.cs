@@ -14,9 +14,8 @@ namespace GameOfLife
 
 		public static void Main(string[] args) {
 			Console.WriteLine("Game of Life");
-			Board board = new Board ();
-			board.SetBoardSize (boardSize);
-			board.SetPattern("glider");
+			Board board = new Board(boardSize);
+			board.pattern = "glider";
 			board.ShowBoard();
 			board.TakeTurns(maxTurns);
 		}
